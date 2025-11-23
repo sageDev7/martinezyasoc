@@ -637,7 +637,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav>
             <a href="index.html" class="logo">
@@ -658,7 +657,6 @@
         </nav>
     </header>
 
-    <!-- Hero Interno -->
     <section class="hero-interno">
         <div class="hero-interno-content">
             <h1>Recursos y <strong>Preguntas Frecuentes</strong></h1>
@@ -666,36 +664,12 @@
         </div>
     </section>
 
-    <!-- Buscador -->
-    <section class="buscador-section">
-        <div class="buscador-container">
-            <div class="buscador-box">
-                <input 
-                    type="text" 
-                    class="buscador-input" 
-                    id="searchInput" 
-                    placeholder="Buscar preguntas, recursos o temas..."
-                >
-                <button class="btn-buscar" onclick="buscarContenido()">
-                    <i class="fas fa-search"></i>
-                    Buscar
-                </button>
-            </div>
-            <p class="buscador-info">
-                <i class="fas fa-info-circle"></i>
-                Busque por palabras clave o explore por categorías
-            </p>
-        </div>
-    </section>
-
-    <!-- Recursos Descargables -->
     <section class="recursos-section">
         <div class="container">
             <h2 class="section-title">Recursos <strong>Descargables</strong></h2>
             <p class="section-subtitle">Guías, checklists y documentos de referencia gratuitos</p>
             
             <div class="recursos-grid">
-                <!-- Recurso 1 -->
                 <div class="recurso-card">
                     <div class="recurso-icono">
                         <i class="fas fa-file-pdf"></i>
@@ -715,7 +689,6 @@
                     </a>
                 </div>
 
-                <!-- Recurso 2 -->
                 <div class="recurso-card">
                     <div class="recurso-icono">
                         <i class="fas fa-file-alt"></i>
@@ -735,7 +708,6 @@
                     </a>
                 </div>
 
-                <!-- Recurso 3 -->
                 <div class="recurso-card">
                     <div class="recurso-icono">
                         <i class="fas fa-book"></i>
@@ -755,7 +727,6 @@
                     </a>
                 </div>
 
-                <!-- Recurso 4 -->
                 <div class="recurso-card">
                     <div class="recurso-icono">
                         <i class="fas fa-clipboard-list"></i>
@@ -775,7 +746,6 @@
                     </a>
                 </div>
 
-                <!-- Recurso 5 -->
                 <div class="recurso-card">
                     <div class="recurso-icono">
                         <i class="fas fa-balance-scale"></i>
@@ -795,7 +765,6 @@
                     </a>
                 </div>
 
-                <!-- Recurso 6 -->
                 <div class="recurso-card">
                     <div class="recurso-icono">
                         <i class="fas fa-calculator"></i>
@@ -818,13 +787,32 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <section class="buscador-section">
+        <div class="buscador-container">
+            <div class="buscador-box">
+                <input 
+                    type="text" 
+                    class="buscador-input" 
+                    id="searchInput" 
+                    placeholder="Buscar preguntas, recursos o temas..."
+                >
+                <button class="btn-buscar" onclick="buscarContenido()">
+                    <i class="fas fa-search"></i>
+                    Buscar
+                </button>
+            </div>
+            <p class="buscador-info">
+                <i class="fas fa-info-circle"></i>
+                Busque por palabras clave o explore por categorías
+            </p>
+        </div>
+    </section>
+
     <section class="faq-section">
         <div class="container">
             <h2 class="section-title">Preguntas <strong>Frecuentes</strong></h2>
             <p class="section-subtitle">Respuestas a las consultas más comunes</p>
 
-            <!-- Categorías FAQ -->
             <div class="faq-categorias">
                 <button class="categoria-btn active" data-categoria="todas" onclick="filtrarFAQ('todas')">
                     Todas
@@ -844,7 +832,6 @@
             </div>
 
             <div class="faq-container" id="faqContainer">
-                <!-- FAQ 1 -->
                 <div class="faq-item" data-categoria="honorarios" data-keywords="cuanto cuesta costo precio honorario consulta inicial primera">
                     <div class="faq-pregunta" onclick="toggleFAQ(this)">
                         <h3>
@@ -859,7 +846,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ 2 -->
                 <div class="faq-item" data-categoria="honorarios" data-keywords="forma pago cuotas tarjeta efectivo transferencia como pagar">
                     <div class="faq-pregunta" onclick="toggleFAQ(this)">
                         <h3>
@@ -881,7 +867,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ 3 -->
                 <div class="faq-item" data-categoria="procesos" data-keywords="juicio laboral demanda despido cuanto tiempo duración tarda plazo">
                     <div class="faq-pregunta" onclick="toggleFAQ(this)">
                         <h3>
@@ -901,7 +886,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ 4 -->
                 <div class="faq-item" data-categoria="documentacion" data-keywords="documentos necesito llevar primera consulta documentación papeles">
                     <div class="faq-pregunta" onclick="toggleFAQ(this)">
                         <h3>
@@ -922,7 +906,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ 5 -->
                 <div class="faq-item" data-categoria="plazos" data-keywords="plazo prescripción demanda laboral cuanto tiempo tengo para">
                     <div class="faq-pregunta" onclick="toggleFAQ(this)">
                         <h3>
@@ -943,7 +926,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ 6 -->
                 <div class="faq-item" data-categoria="procesos" data-keywords="divorcio express rápido cuanto tiempo tarda duración">
                     <div class="faq-pregunta" onclick="toggleFAQ(this)">
                         <h3>
@@ -963,7 +945,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ 7 -->
                 <div class="faq-item" data-categoria="honorarios" data-keywords="pacto cuota litis porcentaje exito resultado gano">
                     <div class="faq-pregunta" onclick="toggleFAQ(this)">
                         <h3>
@@ -984,7 +965,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ 8 -->
                 <div class="faq-item" data-categoria="documentacion" data-keywords="poder especial general necesito documento representación">
                     <div class="faq-pregunta" onclick="toggleFAQ(this)">
                         <h3>
@@ -1004,7 +984,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ 9 -->
                 <div class="faq-item" data-categoria="plazos" data-keywords="sucesión herencia cuanto tiempo tarda trámite plazo">
                     <div class="faq-pregunta" onclick="toggleFAQ(this)">
                         <h3>
@@ -1025,7 +1004,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ 10 -->
                 <div class="faq-item" data-categoria="procesos" data-keywords="desalojo inquilino cuanto tiempo demora plazo">
                     <div class="faq-pregunta" onclick="toggleFAQ(this)">
                         <h3>
@@ -1045,7 +1023,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ 11 -->
                 <div class="faq-item" data-categoria="honorarios" data-keywords="gastos costas quien paga juicio costos">
                     <div class="faq-pregunta" onclick="toggleFAQ(this)">
                         <h3>
@@ -1065,7 +1042,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ 12 -->
                 <div class="faq-item" data-categoria="documentacion" data-keywords="certificado antecedentes penales laburo trabajo necesito">
                     <div class="faq-pregunta" onclick="toggleFAQ(this)">
                         <h3>
@@ -1086,7 +1062,6 @@
                 </div>
             </div>
 
-            <!-- Mensaje sin resultados -->
             <div class="no-resultados" id="noResultadosFAQ">
                 <i class="fas fa-search"></i>
                 <h3>No se encontraron preguntas</h3>
@@ -1095,7 +1070,6 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <h2>¿No encontró la respuesta que buscaba?</h2>
@@ -1106,7 +1080,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
