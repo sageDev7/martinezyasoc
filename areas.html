@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Áreas de Práctica | Martínez & Asociados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: #1a2332;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            color: #c9a961;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #c9a961;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-right: 1rem;
+        }
+
+        /* Hero interno */
+        .hero-interno {
+            height: 50vh;
+            background: linear-gradient(rgba(26, 35, 50, 0.88), rgba(26, 35, 50, 0.92)), 
+                        url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            margin-top: 78px;
+        }
+
+        .hero-interno-content h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .hero-interno-content h1 strong {
+            font-weight: 600;
+            color: #c9a961;
+        }
+
+        .hero-interno-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Container general */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* Buscador */
+        .buscador-section {
+            padding: 3rem 5%;
+            background: #fff;
+        }
+
+        .buscador-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .buscador-box {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .buscador-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .buscador-input:focus {
+            outline: none;
+            border-color: #c9a961;
+        }
+
+        .btn-buscar {
+            padding: 1rem 2rem;
+            background: #1a2332;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-buscar:hover {
+            background: #c9a961;
+        }
+
+        .filtros {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filtro-btn {
+            padding: 0.6rem 1.2rem;
+            background: #f8f9fa;
+            border: 2px solid #e2e8f0;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #5a6c7d;
+        }
+
+        .filtro-btn:hover,
+        .filtro-btn.active {
+            background: #1a2332;
+            color: #fff;
+            border-color: #1a2332;
+        }
+
+        /* Áreas de práctica */
+        .areas-section {
+            padding: 4rem 5%;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a2332;
+            font-weight: 300;
+        }
+
+        .section-title strong {
+            font-weight: 600;
+            color: #c9a961;
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .area-card {
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .area-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .area-card-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .area-card-header i {
+            font-size: 2.5rem;
+            color: #c9a961;
+        }
+
+        .area-card-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .area-card-body {
+            padding: 2rem;
+        }
+
+        .area-card-body p {
+            color: #5a6c7d;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .servicios-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .servicios-list li {
+            padding: 0.5rem 0;
+            color: #5a6c7d;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .servicios-list li i {
+            color: #c9a961;
+            margin-top: 0.3rem;
+            flex-shrink: 0;
+        }
+
+        .btn-detalle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #1a2332;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn-detalle:hover {
+            background: #c9a961;
+        }
+
+        .no-resultados {
+            text-align: center;
+            padding: 3rem;
+            background: #fff;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .no-resultados i {
+            font-size: 4rem;
+            color: #cbd5e0;
+            margin-bottom: 1rem;
+        }
+
+        .no-resultados h3 {
+            font-size: 1.5rem;
+            color: #1a2332;
+            margin-bottom: 0.5rem;
+        }
+
+        .no-resultados p {
+            color: #5a6c7d;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 5%;
+            background: linear-gradient(rgba(26, 35, 50, 0.95), rgba(26, 35, 50, 0.97)),
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            color: #fff;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: #c9a961;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .cta-button:hover {
+            background: #b39451;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #0f1419;
+            color: #fff;
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
+
+        .footer-section h3 {
+            color: #c9a961;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #a0aec0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .footer-section p {
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #c9a961;
+        }
+
+        .footer-section i {
+            margin-right: 0.5rem;
+            color: #c9a961;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2d3748;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        /* Botón flotante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                position: relative;
+                padding: 1.5rem 5%; /* Asegura el padding para el botón */
+            }
+            
+            .logo {
+                /* Ajustes para evitar el colapso y mover el menú a la derecha */
+                position: static;
+                transform: none;
+                font-size: 1.2rem; 
+                margin: 0 auto;
+                text-align: center;
+                width: fit-content;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: #1a2332;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.3s ease;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu-btn {
+                /* Posicionado a la derecha */
+                display: block;
+                z-index: 1000;
+                position: absolute;
+                right: 5%;
+                top: 50%;
+                transform: translateY(-50%);
+                margin-right: 0;
+            }
+
+            .hero-interno {
+                height: 40vh;
+            }
+
+            .hero-interno-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-interno-content p {
+                font-size: 1rem;
+            }
+
+            .buscador-box {
+                flex-direction: column;
+            }
+
+            .areas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <i class="fas fa-balance-scale"></i>
+                Martínez & Asociados
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">El Estudio</a></li>
+                <li><a href="areas.html" class="active">Áreas de Práctica</a></li>
+                <li><a href="simuladores.html">Simuladores</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-interno">
+        <div class="hero-interno-content">
+            <h1>Áreas de <strong>Práctica</strong></h1>
+            <p>Soluciones jurídicas especializadas para cada necesidad</p>
+        </div>
+    </section>
+
+    <section class="buscador-section">
+        <div class="buscador-container">
+            <div class="buscador-box">
+                <input 
+                    type="text" 
+                    class="buscador-input" 
+                    id="searchInput" 
+                    placeholder="Buscar área de práctica o servicio..."
+                >
+                <button class="btn-buscar" onclick="buscarAreas()">
+                    <i class="fas fa-search"></i>
+                    Buscar
+                </button>
+            </div>
+            <div class="filtros">
+                <button class="filtro-btn active" data-categoria="todas" onclick="filtrarPorCategoria('todas')">
+                    Todas
+                </button>
+                <button class="filtro-btn" data-categoria="empresarial" onclick="filtrarPorCategoria('empresarial')">
+                    Empresarial
+                </button>
+                <button class="filtro-btn" data-categoria="personas" onclick="filtrarPorCategoria('personas')">
+                    Personas
+                </button>
+                <button class="filtro-btn" data-categoria="litigios" onclick="filtrarPorCategoria('litigios')">
+                    Litigios
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="areas-section">
+        <div class="container">
+            <div class="areas-grid" id="areasGrid">
+                <div class="area-card" data-categoria="personas litigios" data-keywords="laboral trabajo despido accidente indemnización empleado rrhh recursos humanos sindicato art ley contrato trabajo">
+                    <div class="area-card-header">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Derecho Laboral</h3>
+                    </div>
+                    <div class="area-card-body">
+                        <p>Representación y asesoramiento integral en todas las cuestiones vinculadas a las relaciones laborales, tanto para empleadores como trabajadores.</p>
+                        <ul class="servicios-list">
+                            <li><i class="fas fa-check-circle"></i> Despidos y liquidaciones finales</li>
+                            <li><i class="fas fa-check-circle"></i> Accidentes de trabajo y enfermedades laborales</li>
+                            <li><i class="fas fa-check-circle"></i> Conflictos sindicales y negociaciones colectivas</li>
+                            <li><i class="fas fa-check-circle"></i> Asesoramiento en RRHH y relaciones laborales</li>
+                            <li><i class="fas fa-check-circle"></i> Demandas por discriminación laboral</li>
+                        </ul>
+                        <a href="#" class="btn-detalle">
+                            Ver más detalles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="area-card" data-categoria="empresarial" data-keywords="tributario impuestos afip arba iibb ganancias iva monotributo fiscal inspección determinación recurso">
+                    <div class="area-card-header">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <h3>Derecho Tributario</h3>
+                    </div>
+                    <div class="area-card-body">
+                        <p>Asesoramiento y defensa en cuestiones fiscales ante AFIP, ARBA y organismos municipales.</p>
+                        <ul class="servicios-list">
+                            <li><i class="fas fa-check-circle"></i> Planificación tributaria</li>
+                            <li><i class="fas fa-check-circle"></i> Recursos ante determinaciones de oficio</li>
+                            <li><i class="fas fa-check-circle"></i> Defensa en inspecciones fiscales</li>
+                            <li><i class="fas fa-check-circle"></i> Regularización de deudas impositivas</li>
+                            <li><i class="fas fa-check-circle"></i> Impugnación de multas y sanciones</li>
+                        </ul>
+                        <a href="#" class="btn-detalle">
+                            Ver más detalles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="area-card" data-categoria="empresarial" data-keywords="propiedad intelectual marca patente copyright registro autor software diseño industrial inpi">
+                    <div class="area-card-header">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Propiedad Intelectual</h3>
+                    </div>
+                    <div class="area-card-body">
+                        <p>Protección y defensa de sus creaciones intelectuales, marcas y patentes ante organismos nacionales e internacionales.</p>
+                        <ul class="servicios-list">
+                            <li><i class="fas fa-check-circle"></i> Registro de marcas y patentes</li>
+                            <li><i class="fas fa-check-circle"></i> Derechos de autor y copyright</li>
+                            <li><i class="fas fa-check-circle"></i> Defensa ante infracciones</li>
+                            <li><i class="fas fa-check-circle"></i> Licencias y cesiones</li>
+                            <li><i class="fas fa-check-circle"></i> Protección de software y diseños</li>
+                        </ul>
+                        <a href="#" class="btn-detalle">
+                            Ver más detalles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="area-card" data-categoria="empresarial personas" data-keywords="bancario financiero banco crédito préstamo tarjeta ejecución hipotecaria cheque pagaré bcra">
+                    <div class="area-card-header">
+                        <i class="fas fa-university"></i>
+                        <h3>Derecho Bancario y Financiero</h3>
+                    </div>
+                    <div class="area-card-body">
+                        <p>Asesoramiento en operaciones financieras y defensa en conflictos con entidades bancarias.</p>
+                        <ul class="servicios-list">
+                            <li><i class="fas fa-check-circle"></i> Contratos de préstamo y crédito</li>
+                            <li><i class="fas fa-check-circle"></i> Defensa de deudores bancarios</li>
+                            <li><i class="fas fa-check-circle"></i> Ejecuciones hipotecarias y prendarias</li>
+                            <li><i class="fas fa-check-circle"></i> Tarjetas de crédito y resúmenes</li>
+                            <li><i class="fas fa-check-circle"></i> Cheques rechazados y pagarés</li>
+                        </ul>
+                        <a href="#" class="btn-detalle">
+                            Ver más detalles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="area-card" data-categoria="empresarial" data-keywords="comercial empresa sociedad contrato comercio srl sa constitución fusión adquisición m&a comercio internacional">
+                    <div class="area-card-header">
+                        <i class="fas fa-building"></i>
+                        <h3>Derecho Comercial</h3>
+                    </div>
+                    <div class="area-card-body">
+                        <p>Asesoramiento jurídico completo para empresas en todas las etapas del ciclo comercial y societario.</p>
+                        <ul class="servicios-list">
+                            <li><i class="fas fa-check-circle"></i> Constitución de sociedades (SRL, SA, SAS)</li>
+                            <li><i class="fas fa-check-circle"></i> Contratos comerciales y acuerdos empresariales</li>
+                            <li><i class="fas fa-check-circle"></i> Fusiones, adquisiciones y restructuraciones</li>
+                            <li><i class="fas fa-check-circle"></i> Conflictos societarios y socios</li>
+                            <li><i class="fas fa-check-circle"></i> Due diligence y auditorías legales</li>
+                        </ul>
+                        <a href="#" class="btn-detalle">
+                            Ver más detalles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="area-card" data-categoria="personas litigios" data-keywords="civil contratos daños perjuicios responsabilidad obligaciones incumplimiento reparación indemnización">
+                    <div class="area-card-header">
+                        <i class="fas fa-file-contract"></i>
+                        <h3>Derecho Civil</h3>
+                    </div>
+                    <div class="area-card-body">
+                        <p>Defensa de derechos y obligaciones entre particulares en todo tipo de conflictos civiles y contractuales.</p>
+                        <ul class="servicios-list">
+                            <li><i class="fas fa-check-circle"></i> Contratos civiles y comerciales</li>
+                            <li><i class="fas fa-check-circle"></i> Daños y perjuicios</li>
+                            <li><i class="fas fa-check-circle"></i> Responsabilidad civil extracontractual</li>
+                            <li><i class="fas fa-check-circle"></i> Obligaciones y incumplimientos contractuales</li>
+                            <li><i class="fas fa-check-circle"></i> Mediación y resolución de conflictos</li>
+                        </ul>
+                        <a href="#" class="btn-detalle">
+                            Ver más detalles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="area-card" data-categoria="personas" data-keywords="familia divorcio separación alimentos cuota alimentaria visitas tenencia hijos matrimonio violencia domestica">
+                    <div class="area-card-header">
+                        <i class="fas fa-users"></i>
+                        <h3>Derecho de Familia</h3>
+                    </div>
+                    <div class="area-card-body">
+                        <p>Acompañamiento profesional y humano en cuestiones familiares, priorizando el bienestar de todos los involucrados.</p>
+                        <ul class="servicios-list">
+                            <li><i class="fas fa-check-circle"></i> Divorcios y separaciones consensuadas</li>
+                            <li><i class="fas fa-check-circle"></i> Régimen de comunicación y cuidado personal</li>
+                            <li><i class="fas fa-check-circle"></i> Cuotas alimentarias y compensaciones</li>
+                            <li><i class="fas fa-check-circle"></i> Violencia familiar y medidas de protección</li>
+                            <li><i class="fas fa-check-circle"></i> Adopción y filiación</li>
+                        </ul>
+                        <a href="#" class="btn-detalle">
+                            Ver más detalles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="area-card" data-categoria="personas" data-keywords="sucesiones herencia testamento herederos declaratoria sucesorio bienes partición inventario hijuela">
+                    <div class="area-card-header">
+                        <i class="fas fa-scroll"></i>
+                        <h3>Sucesiones</h3>
+                    </div>
+                    <div class="area-card-body">
+                        <p>Tramitación completa de sucesiones y planificación patrimonial para proteger el futuro de su familia.</p>
+                        <ul class="servicios-list">
+                            <li><i class="fas fa-check-circle"></i> Declaratorias de herederos</li>
+                            <li><i class="fas fa-check-circle"></i> Testamentos y planificación sucesoria</li>
+                            <li><i class="fas fa-check-circle"></i> Partición de bienes hereditarios</li>
+                            <li><i class="fas fa-check-circle"></i> Conflictos entre herederos</li>
+                            <li><i class="fas fa-check-circle"></i> Impuesto a la transmisión gratuita de bienes</li>
+                        </ul>
+                        <a href="#" class="btn-detalle">
+                            Ver más detalles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="area-card" data-categoria="personas empresarial" data-keywords="inmobiliario propiedad compraventa alquiler locación escritura boleto hipoteca usucapión prescripción adquisitiva">
+                    <div class="area-card-header">
+                        <i class="fas fa-home"></i>
+                        <h3>Derecho Inmobiliario</h3>
+                    </div>
+                    <div class="area-card-body">
+                        <p>Protección integral de sus intereses en operaciones inmobiliarias y conflictos de propiedad.</p>
+                        <ul class="servicios-list">
+                            <li><i class="fas fa-check-circle"></i> Compraventa de inmuebles</li>
+                            <li><i class="fas fa-check-circle"></i> Contratos de locación y desalojos</li>
+                            <li><i class="fas fa-check-circle"></i> Regularización dominial y usucapión</li>
+                            <li><i class="fas fa-check-circle"></i> Propiedad horizontal y conflictos de consorcio</li>
+                            <li><i class="fas fa-check-circle"></i> Hipotecas y gravámenes</li>
+                        </ul>
+                        <a href="#" class="btn-detalle">
+                            Ver más detalles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="area-card" data-categoria="empresarial litigios" data-keywords="administrativo estado gobierno municipio provincia nación licitación contrato público contencioso recurso amparo">
+                    <div class="area-card-header">
+                        <i class="fas fa-landmark"></i>
+                        <h3>Derecho Administrativo</h3>
+                    </div>
+                    <div class="area-card-body">
+                        <p>Defensa ante organismos públicos y representación en conflictos con el Estado en todos sus niveles.</p>
+                        <ul class="servicios-list">
+                            <li><i class="fas fa-check-circle"></i> Recursos administrativos y reclamos</li>
+                            <li><i class="fas fa-check-circle"></i> Contencioso administrativo</li>
+                            <li><i class="fas fa-check-circle"></i> Licitaciones y contratos públicos</li>
+                            <li><i class="fas fa-check-circle"></i> Amparos y medidas cautelares</li>
+                            <li><i class="fas fa-check-circle"></i> Responsabilidad del Estado</li>
+                        </ul>
+                        <a href="#" class="btn-detalle">
+                            Ver más detalles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="area-card" data-categoria="personas litigios" data-keywords="penal defensa acusado imputado delito querella denuncia excarcelación eximición prisión preventiva juicio">
+                    <div class="area-card-header">
+                        <i class="fas fa-gavel"></i>
+                        <h3>Derecho Penal</h3>
+                    </div>
+                    <div class="area-card-body">
+                        <p>Defensa técnica especializada en procesos penales, protegiendo sus derechos constitucionales en todo momento.</p>
+                        <ul class="servicios-list">
+                            <li><i class="fas fa-check-circle"></i> Defensa de imputados</li>
+                            <li><i class="fas fa-check-circle"></i> Querellas y denuncias</li>
+                            <li><i class="fas fa-check-circle"></i> Excarcelaciones y eximiciones de prisión</li>
+                            <li><i class="fas fa-check-circle"></i> Delitos económicos y empresariales</li>
+                            <li><i class="fas fa-check-circle"></i> Recursos de apelación y casación</li>
+                        </ul>
+                        <a href="#" class="btn-detalle">
+                            Ver más detalles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="area-card" data-categoria="personas" data-keywords="consumidor defensa usuario garantía producto servicio defectuoso daño reclamo coprec incumplimiento">
+                    <div class="area-card-header">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Derecho del Consumidor</h3>
+                    </div>
+                    <div class="area-card-body">
+                        <p>Protección de sus derechos como consumidor ante productos defectuosos, publicidad engañosa y servicios deficientes.</p>
+                        <ul class="servicios-list">
+                            <li><i class="fas fa-check-circle"></i> Productos y servicios defectuosos</li>
+                            <li><i class="fas fa-check-circle"></i> Garantías y cambios</li>
+                            <li><i class="fas fa-check-circle"></i> Reclamos ante COPREC</li>
+                            <li><i class="fas fa-check-circle"></i> Publicidad engañosa</li>
+                            <li><i class="fas fa-check-circle"></i> Daños y perjuicios al consumidor</li>
+                        </ul>
+                        <a href="#" class="btn-detalle">
+                            Ver más detalles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="no-resultados" id="noResultados">
+                <i class="fas fa-search"></i>
+                <h3>No se encontraron resultados</h3>
+                <p>No hay áreas de práctica que coincidan con tu búsqueda. Intenta con otros términos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Necesita asesoramiento en alguna de estas áreas?</h2>
+            <p>Contáctenos para una consulta inicial sin compromiso</p>
+            <a href="contacto.html" class="cta-button">
+                <i class="fas fa-calendar-check"></i> Agendar Consulta
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Martínez & Asociados</h3>
+                <p>Estudio jurídico especializado con presencia en Buenos Aires desde 1998.</p>
+                <p style="margin-top: 1rem;">
+                    <i class="fas fa-certificate"></i> Matrícula CPACF: T° 89 F° 234
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Corrientes 1234, Piso 8°</p>
+                <p>Ciudad de Buenos Aires (C1043)</p>
+                <p><i class="fas fa-phone"></i> +54 11 4567-8900</p>
+                <p><i class="fas fa-envelope"></i> info@martinezasociados.com.ar</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horarios</h3>
+                <p><i class="far fa-clock"></i> Lunes a Viernes</p>
+                <p>9:00 a 18:00 hs</p>
+                <p style="margin-top: 1rem;"><i class="fas fa-calendar-alt"></i> Turnos disponibles</p>
+                <p>Consultas por videollamada</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+                <a href="index.html">Inicio</a>
+                <a href="nosotros.html">El Estudio</a>
+                <a href="areas.html">Áreas de Práctica</a>
+                <a href="simuladores.html">Simuladores</a>
+                <a href="#">Aviso Legal</a>
+                <a href="#">Política de Privacidad</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Martínez & Asociados. Todos los derechos reservados. | Desarrollado por @sageeDev</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Búsqueda de áreas
+        function buscarAreas() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.area-card');
+            const noResultados = document.getElementById('noResultados');
+            let hasResults = false;
+
+            cards.forEach(card => {
+                const keywords = card.getAttribute('data-keywords').toLowerCase();
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const content = card.querySelector('.area-card-body').textContent.toLowerCase();
+
+                if (searchTerm === '' || keywords.includes(searchTerm) || title.includes(searchTerm) || content.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            noResultados.style.display = hasResults ? 'none' : 'block';
+        }
+
+        // Búsqueda al presionar Enter
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                buscarAreas();
+            }
+        });
+
+        // Filtrar por categoría
+        function filtrarPorCategoria(categoria) {
+            const cards = document.querySelectorAll('.area-card');
+            const filtros = document.querySelectorAll('.filtro-btn');
+            const noResultados = document.getElementById('noResultados');
+            let hasResults = false;
+
+            // Actualizar estado de botones
+            filtros.forEach(btn => {
+                if (btn.getAttribute('data-categoria') === categoria) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Filtrar tarjetas
+            cards.forEach(card => {
+                const categorias = card.getAttribute('data-categoria');
+                
+                if (categoria === 'todas' || categorias.includes(categoria)) {
+                    card.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            noResultados.style.display = hasResults ? 'none' : 'block';
+
+            // Limpiar búsqueda
+            document.getElementById('searchInput').value = '';
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

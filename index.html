@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Jurídico Martínez & Asociados | Abogados en Buenos Aires</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: #1a2332;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            color: #c9a961;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #c9a961;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-right: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 35, 50, 0.88), rgba(26, 35, 50, 0.92)), 
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero h1 strong {
+            font-weight: 600;
+            color: #c9a961;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #c9a961;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .cta-button:hover {
+            background: #b39451;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        /* Sección de Valores */
+        .valores {
+            padding: 5rem 5%;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a2332;
+            font-weight: 300;
+        }
+
+        .section-title strong {
+            font-weight: 600;
+            color: #c9a961;
+        }
+
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .valor-card {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .valor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .valor-card i {
+            font-size: 3rem;
+            color: #c9a961;
+            margin-bottom: 1.5rem;
+        }
+
+        .valor-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #1a2332;
+        }
+
+        .valor-card p {
+            color: #5a6c7d;
+            line-height: 1.7;
+        }
+
+        /* Áreas de Práctica */
+        .areas-practica {
+            padding: 5rem 5%;
+            background: linear-gradient(rgba(248, 249, 250, 0.97), rgba(248, 249, 250, 0.97)),
+                        url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .area-item {
+            padding: 2rem;
+            border-left: 3px solid #c9a961;
+            background: #f8f9fa;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .area-item:hover {
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left-width: 5px;
+        }
+
+        .area-item i {
+            font-size: 2rem;
+            color: #1a2332;
+            margin-bottom: 1rem;
+        }
+
+        .area-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #1a2332;
+        }
+
+        .area-item p {
+            color: #5a6c7d;
+            font-size: 0.95rem;
+        }
+
+        /* Sección Equipo */
+        .equipo {
+            padding: 5rem 5%;
+            background: linear-gradient(rgba(26, 35, 50, 0.95), rgba(26, 35, 50, 0.97)),
+                        url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            text-align: center;
+        }
+
+        .equipo .section-title {
+            color: #fff;
+        }
+
+        .equipo-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .equipo p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 2px solid #c9a961;
+            color: #c9a961;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-secondary:hover {
+            background: #c9a961;
+            color: #fff;
+        }
+
+        /* CTA Final */
+        .cta-section {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #c9a961 0%, #b39451 100%);
+            text-align: center;
+            color: #fff;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-section .cta-button {
+            background: #1a2332;
+        }
+
+        .cta-section .cta-button:hover {
+            background: #2c3e50;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f1419;
+            color: #fff;
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
+
+        .footer-section h3 {
+            color: #c9a961;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #a0aec0;
+            text-decoration: none;
+            display:block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .footer-section p {
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #c9a961;
+        }
+
+        .footer-section i {
+            margin-right: 0.5rem;
+            color: #c9a961;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2d3748;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        /* Botón flotante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Responsive - MODIFICADO */
+        @media (max-width: 768px) {
+            nav {
+                position: relative;
+                padding: 1.5rem 5%; 
+            }
+            
+            .logo {
+                /* Ajustes para evitar el colapso y mantener centrado */
+                position: static;
+                transform: none;
+                font-size: 1.2rem; 
+                margin: 0 auto;
+                text-align: center;
+                width: fit-content;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: #1a2332;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.3s ease;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu-btn {
+                /* Posicionado a la derecha */
+                display: block;
+                z-index: 1000;
+                position: absolute;
+                right: 5%;
+                top: 50%;
+                transform: translateY(-50%);
+                margin-right: 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .areas-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">
+                <i class="fas fa-balance-scale"></i>
+                Martínez & Asociados
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="nosotros.html">El Estudio</a></li>
+                <li><a href="areas.html">Áreas de Práctica</a></li>
+                <li><a href="simuladores.html">Simuladores</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Excelencia Jurídica con <strong>Compromiso</strong></h1>
+            <p>Más de 25 años de experiencia protegiendo sus derechos e intereses con el más alto nivel profesional</p>
+            <a href="contacto.html" class="cta-button">
+                <i class="fas fa-calendar-check"></i> Agendar Consulta
+            </a>
+        </div>
+        <div class="hero-scroll">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <section class="valores">
+        <div class="container">
+            <h2 class="section-title">Nuestros <strong>Pilares</strong></h2>
+            <div class="valores-grid">
+                <div class="valor-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Integridad</h3>
+                    <p>Actuamos con transparencia absoluta y ética profesional en cada caso que representamos.</p>
+                </div>
+                <div class="valor-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Experiencia</h3>
+                    <p>Contamos con profesionales especializados y más de dos décadas de trayectoria comprobable.</p>
+                </div>
+                <div class="valor-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Compromiso</h3>
+                    <p>Nos involucramos personalmente en cada asunto, garantizando atención dedicada y resultados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="areas-practica">
+        <div class="container">
+            <h2 class="section-title">Áreas de <strong>Práctica</strong></h2>
+            <div class="areas-grid">
+                <div class="area-item">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Derecho Laboral</h3>
+                    <p>Asesoramiento integral en relaciones laborales, despidos, accidentes y conflictos sindicales.</p>
+                </div>
+                <div class="area-item">
+                    <i class="fas fa-building"></i>
+                    <h3>Derecho Comercial</h3>
+                    <p>Constitución de sociedades, contratos comerciales, fusiones y adquisiciones empresariales.</p>
+                </div>
+                <div class="area-item">
+                    <i class="fas fa-home"></i>
+                    <h3>Derecho Civil</h3>
+                    <p>Contratos, sucesiones, daños y perjuicios, y resolución de conflictos entre particulares.</p>
+                </div>
+                <div class="area-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Derecho de Familia</h3>
+                    <p>Divorcios, régimen de visitas, cuotas alimentarias y protección de derechos familiares.</p>
+                </div>
+                <div class="area-item">
+                    <i class="fas fa-file-contract"></i>
+                    <h3>Derecho Inmobiliario</h3>
+                    <p>Compraventa, locaciones, regularización dominial y conflictos de propiedad horizontal.</p>
+                </div>
+                <div class="area-item">
+                    <i class="fas fa-landmark"></i>
+                    <h3>Derecho Administrativo</h3>
+                    <p>Defensa ante organismos públicos, recursos administrativos y contencioso administrativo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="equipo">
+        <div class="container">
+            <h2 class="section-title">Nuestro <strong>Equipo</strong></h2>
+            <div class="equipo-content">
+                <p>Contamos con un equipo multidisciplinario de abogados especializados, cada uno con amplia trayectoria en sus respectivas áreas. Nuestros profesionales se mantienen en constante actualización jurisprudencial y normativa para brindar el mejor asesoramiento posible.</p>
+                <p>La combinación de juventud y experiencia nos permite ofrecer soluciones innovadoras respaldadas por solidez profesional.</p>
+                <a href="nosotros.html" class="btn-secondary">
+                    <i class="fas fa-users"></i> Conocer al Equipo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Necesita Asesoramiento Legal?</h2>
+            <p>Contáctenos hoy y reciba una evaluación inicial de su caso sin compromiso</p>
+            <a href="contacto.html" class="cta-button">
+                <i class="fas fa-envelope"></i> Solicitar Consulta
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Martínez & Asociados</h3>
+                <p>Estudio jurídico especializado con presencia en Buenos Aires desde 1998.</p>
+                <p style="margin-top: 1rem;">
+                    <i class="fas fa-certificate"></i> Matrícula CPACF: T° 89 F° 234
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Corrientes 1234, Piso 8°</p>
+                <p>Ciudad de Buenos Aires (C1043)</p>
+                <p><i class="fas fa-phone"></i> +54 11 4567-8900</p>
+                <p><i class="fas fa-envelope"></i> info@martinezasociados.com.ar</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horarios</h3>
+                <p><i class="far fa-clock"></i> Lunes a Viernes</p>
+                <p>9:00 a 18:00 hs</p>
+                <p style="margin-top: 1rem;"><i class="fas fa-calendar-alt"></i> Turnos disponibles</p>
+                <p>Consultas por videollamada</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+                <a href="nosotros.html">El Estudio</a>
+                <a href="areas.html">Áreas de Práctica</a>
+                <a href="simuladores.html">Simuladores</a>
+                <a href="#">Aviso Legal</a>
+                <a href="#">Política de Privacidad</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Martínez & Asociados. Todos los derechos reservados. | Desarrollado por @sageeDev</p>
+        </div>
+    </footer>
+
+
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Estudio | Martínez & Asociados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: #1a2332;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            color: #c9a961;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #c9a961;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-right: 1rem;
+        }
+
+        /* Hero interno */
+        .hero-interno {
+            height: 50vh;
+            background: linear-gradient(rgba(26, 35, 50, 0.88), rgba(26, 35, 50, 0.92)), 
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            margin-top: 78px;
+        }
+
+        .hero-interno h1 {
+            font-size: 3rem;
+            font-weight: 300;
+        }
+
+        .hero-interno h1 strong {
+            font-weight: 600;
+            color: #c9a961;
+        }
+
+        /* Container general */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* Historia */
+        .historia {
+            padding: 5rem 5%;
+            background: #fff;
+        }
+
+        .historia-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .historia-texto h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a2332;
+            font-weight: 300;
+        }
+
+        .historia-texto h2 strong {
+            font-weight: 600;
+            color: #c9a961;
+        }
+
+        .historia-texto p {
+            margin-bottom: 1.5rem;
+            color: #5a6c7d;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .historia-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #c9a961;
+            display: block;
+        }
+
+        .stat-label {
+            color: #5a6c7d;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .historia-imagen {
+            position: relative;
+            height: 500px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .historia-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Misión y Visión */
+        .mision-vision {
+            padding: 5rem 5%;
+            background: linear-gradient(rgba(248, 249, 250, 0.97), rgba(248, 249, 250, 0.97)),
+                        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .mv-card {
+            background: #fff;
+            padding: 3rem;
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .mv-card i {
+            font-size: 3rem;
+            color: #c9a961;
+            margin-bottom: 1.5rem;
+        }
+
+        .mv-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #1a2332;
+        }
+
+        .mv-card p {
+            color: #5a6c7d;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Valores */
+        .valores {
+            padding: 5rem 5%;
+            background: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a2332;
+            font-weight: 300;
+        }
+
+        .section-title strong {
+            font-weight: 600;
+            color: #c9a961;
+        }
+
+        .valores-lista {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .valor-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .valor-item:hover {
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transform: translateY(-3px);
+        }
+
+        .valor-item i {
+            font-size: 2rem;
+            color: #c9a961;
+            flex-shrink: 0;
+        }
+
+        .valor-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #1a2332;
+        }
+
+        .valor-item p {
+            color: #5a6c7d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Equipo */
+        .equipo {
+            padding: 5rem 5%;
+            background: linear-gradient(rgba(26, 35, 50, 0.95), rgba(26, 35, 50, 0.97)),
+                        url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .equipo .section-title {
+            color: #fff;
+        }
+
+        .equipo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .equipo-card {
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .equipo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .equipo-foto {
+            height: 350px;
+            background: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .equipo-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .equipo-info {
+            padding: 2rem;
+        }
+
+        .equipo-nombre {
+            font-size: 1.5rem;
+            color: #1a2332;
+            margin-bottom: 0.5rem;
+        }
+
+        .equipo-cargo {
+            color: #c9a961;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .equipo-matricula {
+            color: #5a6c7d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .equipo-especialidades {
+            margin-bottom: 1rem;
+        }
+
+        .especialidad-tag {
+            display: inline-block;
+            background: #f8f9fa;
+            color: #5a6c7d;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            margin: 0.3rem 0.3rem 0.3rem 0;
+        }
+
+        .equipo-bio {
+            color: #5a6c7d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-perfil {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #1a2332;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn-perfil:hover {
+            background: #c9a961;
+        }
+
+        .btn-perfil i {
+            margin-left: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f1419;
+            color: #fff;
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
+
+        .footer-section h3 {
+            color: #c9a961;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #a0aec0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .footer-section p {
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #c9a961;
+        }
+
+        .footer-section i {
+            margin-right: 0.5rem;
+            color: #c9a961;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2d3748;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        /* Botón flotante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .historia-content {
+                grid-template-columns: 1fr;
+            }
+
+            .historia-imagen {
+                height: 400px;
+            }
+
+            .equipo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: relative;
+                /* El padding: 1.5rem 5%; ya está en el nav general */
+            }
+            
+            .logo {
+                /* Ajustes para evitar el colapso y mantener centrado */
+                position: static;
+                transform: none;
+                font-size: 1.2rem; /* Ligeramente más grande para más presencia */
+                margin: 0 auto;
+                text-align: center;
+                width: fit-content;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: #1a2332;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.3s ease;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu-btn {
+                /* Posicionado a la derecha */
+                display: block;
+                z-index: 1000;
+                position: absolute;
+                right: 5%;
+                top: 50%;
+                transform: translateY(-50%);
+                margin-right: 0;
+            }
+
+            .hero-interno {
+                height: 40vh;
+            }
+
+            .hero-interno h1 {
+                font-size: 2rem;
+            }
+
+            .historia-texto h2 {
+                font-size: 2rem;
+            }
+
+            .historia-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <i class="fas fa-balance-scale"></i>
+                Martínez & Asociados
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html" class="active">El Estudio</a></li>
+                <li><a href="areas.html">Áreas de Práctica</a></li>
+                <li><a href="simuladores.html">Simuladores</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Interno -->
+    <section class="hero-interno">
+        <div>
+            <h1>Nuestro <strong>Estudio</strong></h1>
+        </div>
+    </section>
+
+    <!-- Historia -->
+    <section class="historia">
+        <div class="container">
+            <div class="historia-content">
+                <div class="historia-texto">
+                    <h2>Nuestra <strong>Historia</strong></h2>
+                    <p>Fundado en 1998 por el Dr. Ricardo Martínez, nuestro estudio nació con la visión de brindar asesoramiento jurídico de excelencia con un enfoque personalizado y cercano a cada cliente.</p>
+                    <p>A lo largo de más de 25 años, hemos construido una sólida reputación basada en resultados concretos, ética profesional y compromiso absoluto con los intereses de nuestros representados.</p>
+                    <p>Hoy somos un equipo multidisciplinario que combina la experiencia de profesionales senior con la energía y actualización constante de abogados jóvenes especializados.</p>
+                    
+                    <div class="historia-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">25+</span>
+                            <span class="stat-label">Años de Trayectoria</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1200+</span>
+                            <span class="stat-label">Casos Exitosos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15</span>
+                            <span class="stat-label">Profesionales</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Satisfacción</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="historia-imagen">
+                    <img src="https://i.pinimg.com/736x/1f/e0/be/1fe0bea2e28b3b9a3b57fbdcd7ca1293.jpg" alt="Oficina del estudio">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Misión y Visión -->
+    <section class="mision-vision">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Misión</h3>
+                    <p>Proporcionar soluciones jurídicas integrales de la más alta calidad, actuando con transparencia, profesionalismo y dedicación absoluta para proteger los derechos e intereses de nuestros clientes en cada caso que representamos.</p>
+                </div>
+                <div class="mv-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Visión</h3>
+                    <p>Consolidarnos como el estudio jurídico de referencia en Buenos Aires, reconocido por nuestra excelencia técnica, innovación en la práctica legal y por el impacto positivo que generamos en la vida de nuestros clientes y la comunidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores -->
+    <section class="valores">
+        <div class="container">
+            <h2 class="section-title">Nuestros <strong>Valores</strong></h2>
+            <div class="valores-lista">
+                <div class="valor-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h4>Integridad</h4>
+                        <p>Actuamos con honestidad y transparencia en cada decisión y consejo que brindamos.</p>
+                    </div>
+                </div>
+                <div class="valor-item">
+                    <i class="fas fa-balance-scale"></i>
+                    <div>
+                        <h4>Ética Profesional</h4>
+                        <p>Nos regimos por los más altos estándares éticos en el ejercicio de la abogacía.</p>
+                    </div>
+                </div>
+                <div class="valor-item">
+                    <i class="fas fa-handshake"></i>
+                    <div>
+                        <h4>Compromiso</h4>
+                        <p>Nos involucramos personalmente en cada caso, garantizando atención dedicada.</p>
+                    </div>
+                </div>
+                <div class="valor-item">
+                    <i class="fas fa-award"></i>
+                    <div>
+                        <h4>Excelencia</h4>
+                        <p>Buscamos la perfección en cada estrategia legal y documento que producimos.</p>
+                    </div>
+                </div>
+                <div class="valor-item">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <h4>Trabajo en Equipo</h4>
+                        <p>Colaboramos interdisciplinariamente para brindar soluciones más completas.</p>
+                    </div>
+                </div>
+                <div class="valor-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Innovación</h4>
+                        <p>Incorporamos tecnología y métodos modernos sin perder la solidez jurídica tradicional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section class="equipo">
+        <div class="container">
+            <h2 class="section-title">Nuestro <strong>Equipo</strong></h2>
+            <div class="equipo-grid">
+                <!-- Socio Fundador -->
+                <div class="equipo-card">
+                    <div class="equipo-foto">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Dr. Ricardo Martínez">
+                    </div>
+                    <div class="equipo-info">
+                        <h3 class="equipo-nombre">Dr. Ricardo Martínez</h3>
+                        <p class="equipo-cargo">Socio Fundador</p>
+                        <p class="equipo-matricula">
+                            <i class="fas fa-id-card"></i>
+                            Matrícula CPACF: T° 89 F° 234
+                        </p>
+                        <div class="equipo-especialidades">
+                            <span class="especialidad-tag">Derecho Comercial</span>
+                            <span class="especialidad-tag">Derecho Societario</span>
+                            <span class="especialidad-tag">Contratos</span>
+                        </div>
+                        <p class="equipo-bio">
+                            Abogado egresado de la UBA con más de 30 años de experiencia. Especialista en derecho comercial y societario. Ha asesorado a más de 200 empresas en procesos de constitución, fusión y adquisición.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Socia -->
+                <div class="equipo-card">
+                    <div class="equipo-foto">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Dra. Ana Gutiérrez">
+                    </div>
+                    <div class="equipo-info">
+                        <h3 class="equipo-nombre">Dra. Ana Gutiérrez</h3>
+                        <p class="equipo-cargo">Socia - Área Laboral</p>
+                        <p class="equipo-matricula">
+                            <i class="fas fa-id-card"></i>
+                            Matrícula CPACF: T° 102 F° 567
+                        </p>
+                        <div class="equipo-especialidades">
+                            <span class="especialidad-tag">Derecho Laboral</span>
+                            <span class="especialidad-tag">Accidentes de Trabajo</span>
+                            <span class="especialidad-tag">Despidos</span>
+                        </div>
+                        <p class="equipo-bio">
+                            Especialista en derecho laboral con 18 años de trayectoria. Magíster en Derecho del Trabajo (UBA). Ha representado exitosamente a trabajadores y empresas en conflictos laborales complejos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Socio -->
+                <div class="equipo-card">
+                    <div class="equipo-foto">
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=600&q=80" alt="Dr. Martín Rodríguez">
+                    </div>
+                    <div class="equipo-info">
+                        <h3 class="equipo-nombre">Dr. Martín Rodríguez</h3>
+                        <p class="equipo-cargo">Socio - Área Civil</p>
+                        <p class="equipo-matricula">
+                            <i class="fas fa-id-card"></i>
+                            Matrícula CPACF: T° 115 F° 892
+                        </p>
+                        <div class="equipo-especialidades">
+                            <span class="especialidad-tag">Derecho Civil</span>
+                            <span class="especialidad-tag">Sucesiones</span>
+                            <span class="especialidad-tag">Daños y Perjuicios</span>
+                        </div>
+                        <p class="equipo-bio">
+                            Abogado especializado en derecho civil y sucesiones. 15 años de experiencia en litigios complejos. Docente en la Facultad de Derecho (UBA). Autor de publicaciones en revistas jurídicas especializadas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Asociada -->
+                <div class="equipo-card">
+                    <div class="equipo-foto">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" alt="Dra. Laura Fernández">
+                    </div>
+                    <div class="equipo-info">
+                        <h3 class="equipo-nombre">Dra. Laura Fernández</h3>
+                        <p class="equipo-cargo">Asociada Senior - Familia</p>
+                        <p class="equipo-matricula">
+                            <i class="fas fa-id-card"></i>
+                            Matrícula CPACF: T° 128 F° 441
+                        </p>
+                        <div class="equipo-especialidades">
+                            <span class="especialidad-tag">Derecho de Familia</span>
+                            <span class="especialidad-tag">Divorcios</span>
+                            <span class="especialidad-tag">Régimen de Visitas</span>
+                        </div>
+                        <p class="equipo-bio">
+                            Especialista en derecho de familia con enfoque humanista. 12 años dedicados a resolver conflictos familiares con mediación y litigio. Formación en resolución alternativa de conflictos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Asociado -->
+                <div class="equipo-card">
+                    <div class="equipo-foto">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Dr. Diego Torres">
+                    </div>
+                    <div class="equipo-info">
+                        <h3 class="equipo-nombre">Dr. Diego Torres</h3>
+                        <p class="equipo-cargo">Asociado - Inmobiliario</p>
+                        <p class="equipo-matricula">
+                            <i class="fas fa-id-card"></i>
+                            Matrícula CPACF: T° 135 F° 678
+                        </p>
+                        <div class="equipo-especialidades">
+                            <span class="especialidad-tag">Derecho Inmobiliario</span>
+                            <span class="especialidad-tag">Contratos</span>
+                            <span class="especialidad-tag">Regularización Dominial</span>
+                        </div>
+                        <p class="equipo-bio">
+                            Abogado especializado en derecho inmobiliario y urbanístico. 8 años de experiencia en compraventa de propiedades, locaciones comerciales y regularización de dominios.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Asociada -->
+                <div class="equipo-card">
+                    <div class="equipo-foto">
+                        <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=600&q=80" alt="Dra. Carolina Silva">
+                    </div>
+                    <div class="equipo-info">
+                        <h3 class="equipo-nombre">Dra. Carolina Silva</h3>
+                        <p class="equipo-cargo">Asociada - Administrativo</p>
+                        <p class="equipo-matricula">
+                            <i class="fas fa-id-card"></i>
+                            Matrícula CPACF: T° 142 F° 223
+                        </p>
+                        <div class="equipo-especialidades">
+                            <span class="especialidad-tag">Derecho Administrativo</span>
+                            <span class="especialidad-tag">Contencioso</span>
+                            <span class="especialidad-tag">Licitaciones</span>
+                        </div>
+                        <p class="equipo-bio">
+                            Especialista en derecho administrativo y contencioso administrativo. 10 años defendiendo a particulares y empresas ante organismos públicos. Magíster en Administración Pública.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Martínez & Asociados</h3>
+                <p>Estudio jurídico especializado con presencia en Buenos Aires desde 1998.</p>
+                <p style="margin-top: 1rem;">
+                    <i class="fas fa-certificate"></i> Matrícula CPACF: T° 89 F° 234
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Corrientes 1234, Piso 8°</p>
+                <p>Ciudad de Buenos Aires (C1043)</p>
+                <p><i class="fas fa-phone"></i> +54 11 4567-8900</p>
+                <p><i class="fas fa-envelope"></i> info@martinezasociados.com.ar</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horarios</h3>
+                <p><i class="far fa-clock"></i> Lunes a Viernes</p>
+                <p>9:00 a 18:00 hs</p>
+                <p style="margin-top: 1rem;"><i class="fas fa-calendar-alt"></i> Turnos disponibles</p>
+                <p>Consultas por videollamada</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+                <a href="index.html">Inicio</a>
+                <a href="nosotros.html">El Estudio</a>
+                <a href="areas.html">Áreas de Práctica</a>
+                <a href="simuladores.html">Simuladores</a>
+                <a href="#">Aviso Legal</a>
+                <a href="#">Política de Privacidad</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Martínez & Asociados. Todos los derechos reservados. | Desarrollado por @sageeDev</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
