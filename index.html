@@ -402,11 +402,14 @@
         }
 
         .areas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 2.5rem;
             position: relative;
             z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
         }
 
         .area-card {
@@ -418,6 +421,9 @@
             border-top: 3px solid transparent;
             border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
+            width: 100%;
+            max-width: 360px;
+            text-align: center;
         }
 
         .area-card:hover {
@@ -435,7 +441,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
+            margin: 0 auto 1.5rem;
             font-size: 2rem;
             color: var(--blanco);
             transition: all 0.4s ease;
@@ -463,6 +469,8 @@
         .area-lista {
             list-style: none;
             margin-bottom: 1.5rem;
+            text-align: left;
+            display: inline-block;
         }
 
         .area-lista li {
@@ -862,10 +870,6 @@
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
-
-            .areas-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            }
         }
 
         @media (max-width: 968px) {
@@ -1012,7 +1016,13 @@
             }
 
             .areas-grid {
-                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 0 2rem;
+            }
+
+            .area-card {
+                max-width: 340px;
+                margin: 0 auto;
             }
 
             .stats-grid {
@@ -1308,7 +1318,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Navbar scroll effect
         const navbar = document.querySelector('.navbar');
         

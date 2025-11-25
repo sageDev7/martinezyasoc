@@ -213,16 +213,19 @@
         }
 
         .buscador-container {
-            max-width: 1400px;
+            max-width: 900px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 2rem;
+            align-items: center;
         }
 
         .search-box {
             display: flex;
             gap: 1rem;
+            width: 100%;
+            max-width: 700px;
         }
 
         #searchInput {
@@ -232,6 +235,11 @@
             font-size: 1rem;
             font-family: 'Inter', sans-serif;
             transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        #searchInput::placeholder {
+            text-align: center;
         }
 
         #searchInput:focus {
@@ -260,6 +268,7 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .filtro-btn {
@@ -295,9 +304,12 @@
         }
 
         .areas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 2.5rem;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .area-card {
@@ -308,6 +320,9 @@
             border-top: 5px solid transparent;
             display: flex;
             flex-direction: column;
+            text-align: center;
+            width: 100%;
+            max-width: 360px;
         }
 
         .area-card:hover {
@@ -324,7 +339,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
+            margin: 0 auto 1.5rem;
             font-size: 2rem;
             color: var(--dorado);
             transition: all 0.4s ease;
@@ -362,6 +377,10 @@
             list-style: none;
             margin-bottom: 1.5rem;
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
         }
 
         .area-lista li {
@@ -371,6 +390,8 @@
             display: flex;
             align-items: center;
             gap: 0.6rem;
+            justify-content: flex-start;
+            width: auto;
         }
 
         .area-lista li i {
@@ -755,7 +776,13 @@
             }
 
             .areas-grid {
-                grid-template-columns: 1fr;
+                padding: 0 2rem;
+                gap: 2rem;
+            }
+
+            .area-card {
+                max-width: 340px;
+                margin: 0 auto;
             }
 
             .whatsapp-btn {
@@ -1043,7 +1070,7 @@
                 <p class="footer-tagline">Estudio Jurídico</p>
                 <p><i class="fas fa-map-marker-alt"></i> Av. Corrientes 1234, CABA - Buenos Aires, Argentina</p>
                 <p><i class="fas fa-phone"></i> Tel: +54 11 4567-8900</p>
-                <p><i class="fas fa-envelope"></i> Email: contacto@martinezasociados.com.ar</p>
+                <p><i class="fas fa-envelope"></i> Email: contacto@martinezasociados.com.ar</a></p>
             </div>
 
             <div class="footer-social">
@@ -1077,7 +1104,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Navbar scroll effect
         const navbar = document.querySelector('.navbar');
         
@@ -1163,12 +1190,16 @@
             button.addEventListener('click', () => {
                 currentFilter = button.getAttribute('data-categoria');
                 
+                // Update active button
                 filtroButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
                 
                 filterAreas();
             });
         });
+
+        // Initial call to show all areas
+        filterAreas();
     </script>
 
 </body>
