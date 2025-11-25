@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protección de Datos Personales | Martínez & Asociados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --azul-oscuro: #1a2332; --azul-medio: #2C3E50; --dorado: #C9A961;
+            --gris-oscuro: #2C2C2C; --gris-medio: #666666; --gris-claro: #F8F8F8; --blanco: #FFFFFF;
+        }
+        body { font-family: 'Inter', sans-serif; color: var(--gris-oscuro); line-height: 1.8; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        .navbar { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1rem 0; background: var(--azul-oscuro); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 3rem; }
+        .logo { font-size: 1.4rem; color: var(--blanco); text-decoration: none; display: flex; align-items: center; gap: 0.8rem; white-space: nowrap; }
+        .logo i { color: var(--dorado); font-size: 1.8rem; }
+        .nav-menu { display: flex; list-style: none; gap: 3rem; }
+        .nav-menu a { color: var(--blanco); text-decoration: none; font-size: 0.875rem; transition: color 0.3s; }
+        .nav-menu a:hover { color: var(--dorado); }
+        .article-header { padding: 10rem 3rem 4rem; background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-medio)); color: var(--blanco); }
+        .header-content { max-width: 900px; margin: 0 auto; }
+        .article-categoria { font-size: 0.85rem; color: var(--dorado); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
+        .article-header h1 { font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2; }
+        .article-meta { display: flex; gap: 2rem; font-size: 0.9rem; opacity: 0.9; }
+        .article-content { max-width: 800px; margin: 4rem auto; padding: 0 3rem; }
+        .article-content p { margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.9; }
+        .article-content h2 { font-size: 2rem; margin: 3rem 0 1.5rem; color: var(--azul-oscuro); }
+        .article-content h3 { font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--azul-medio); }
+        .destacado { background: var(--gris-claro); padding: 2rem; border-left: 5px solid var(--dorado); margin: 2rem 0; }
+        .lista-numerada { margin: 1.5rem 0; padding-left: 2rem; }
+        .lista-numerada li { margin-bottom: 1rem; }
+        .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: var(--azul-oscuro); color: var(--blanco); text-decoration: none; margin-top: 3rem; transition: all 0.3s; }
+        .back-btn:hover { background: var(--dorado); }
+        .footer { background: var(--azul-oscuro); color: var(--blanco); padding: 3rem; text-align: center; }
+        .checklist { background: var(--blanco); border: 2px solid var(--dorado); padding: 2rem; margin: 2rem 0; }
+        .checklist-item { padding: 0.8rem 0; border-bottom: 1px solid var(--gris-claro); display: flex; align-items: start; gap: 1rem; }
+        .checklist-item i { color: var(--dorado); margin-top: 0.3rem; }
+        @media (max-width: 768px) {
+            .logo { font-size: 0.95rem; }
+            .nav-menu { display: none; }
+            .article-header { padding: 8rem 2rem 3rem; }
+            .article-header h1 { font-size: 2rem; }
+            .article-content { padding: 0 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-balance-scale"></i> Martínez & Asociados</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">El Estudio</a></li>
+                <li><a href="areas.html">Áreas de Práctica</a></li>
+                <li><a href="publicaciones.html">Publicaciones</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="article-header">
+        <div class="header-content">
+            <p class="article-categoria">Derecho Digital</p>
+            <h1>Protección de Datos Personales en la Era Digital</h1>
+            <div class="article-meta">
+                <span><i class="far fa-calendar"></i> 22 de Diciembre, 2024</span>
+                <span><i class="fas fa-user"></i> Dr. Ricardo Martínez</span>
+                <span><i class="fas fa-clock"></i> 12 min lectura</span>
+            </div>
+        </div>
+    </header>
+
+    <article class="article-content">
+        <p class="destacado"><strong>Resumen Ejecutivo:</strong> La nueva Ley de Protección de Datos Personales establece un marco normativo integral para el tratamiento de información personal, alineándose con estándares internacionales como el GDPR. Este análisis examina las obligaciones para organizaciones públicas y privadas, derechos de los titulares y sanciones aplicables.</p>
+
+        <p>La digitalización acelerada de los últimos años ha puesto en evidencia la necesidad de contar con un marco normativo robusto que garantice la protección de los datos personales. La nueva ley representa un cambio paradigmático en la forma en que las organizaciones deben gestionar la información de las personas.</p>
+
+        <h2>Principios Fundamentales</h2>
+        
+        <p>La normativa se sustenta en siete principios rectores que deben guiar toda actividad de tratamiento de datos personales:</p>
+
+        <ul class="lista-numerada">
+            <li><strong>Legalidad:</strong> Todo tratamiento debe tener una base legal que lo justifique.</li>
+            <li><strong>Consentimiento:</strong> El titular debe otorgar su consentimiento libre, informado, específico e inequívoco.</li>
+            <li><strong>Finalidad:</strong> Los datos deben ser recolectados para fines determinados, explícitos y legítimos.</li>
+            <li><strong>Minimización:</strong> Solo deben recolectarse los datos estrictamente necesarios para la finalidad declarada.</li>
+            <li><strong>Exactitud:</strong> Los datos deben ser actuales y exactos, actualizándose cuando sea necesario.</li>
+            <li><strong>Confidencialidad:</strong> Implementación de medidas de seguridad adecuadas.</li>
+            <li><strong>Responsabilidad proactiva:</strong> El responsable del tratamiento debe demostrar el cumplimiento de estos principios.</li>
+        </ul>
+
+        <h2>Ámbito de Aplicación</h2>
+        
+        <h3>Sujetos Obligados</h3>
+        <p>La ley alcanza a toda persona física o jurídica, pública o privada, que realice tratamiento de datos personales en territorio argentino o cuyos efectos se produzcan en el país, independientemente de dónde se encuentre establecida.</p>
+
+        <h3>Datos Sensibles</h3>
+        <p>Se consideran datos sensibles aquellos que revelan:</p>
+        <ul class="lista-numerada">
+            <li>Origen racial o étnico</li>
+            <li>Opiniones políticas</li>
+            <li>Convicciones religiosas o filosóficas</li>
+            <li>Afiliación sindical</li>
+            <li>Datos genéticos o biométricos</li>
+            <li>Datos relativos a la salud</li>
+            <li>Datos sobre orientación sexual</li>
+        </ul>
+
+        <p>El tratamiento de estos datos está sujeto a restricciones especiales y requiere el consentimiento explícito del titular.</p>
+
+        <h2>Derechos de los Titulares</h2>
+        
+        <div class="destacado">
+            <h3>Derechos ARCO Plus</h3>
+            <p>Los titulares de datos personales gozan de los siguientes derechos:</p>
+            <ul class="lista-numerada">
+                <li><strong>Acceso:</strong> Conocer qué datos se están tratando y con qué finalidad.</li>
+                <li><strong>Rectificación:</strong> Corregir datos inexactos o incompletos.</li>
+                <li><strong>Cancelación:</strong> Solicitar la supresión de datos cuando ya no sean necesarios.</li>
+                <li><strong>Oposición:</strong> Oponerse al tratamiento de datos en determinadas circunstancias.</li>
+                <li><strong>Portabilidad:</strong> Recibir sus datos en formato estructurado y transmitirlos a otro responsable.</li>
+                <li><strong>Limitación:</strong> Solicitar la restricción del tratamiento en casos específicos.</li>
+                <li><strong>Revocación del consentimiento:</strong> Retirar el consentimiento otorgado en cualquier momento.</li>
+            </ul>
+        </div>
+
+        <h2>Obligaciones de las Organizaciones</h2>
+        
+        <h3>1. Registro de Actividades de Tratamiento</h3>
+        <p>Todas las organizaciones deben mantener un registro detallado de sus actividades de tratamiento de datos que incluya:</p>
+        <ul class="lista-numerada">
+            <li>Finalidad del tratamiento</li>
+            <li>Categorías de datos tratados</li>
+            <li>Categorías de destinatarios</li>
+            <li>Transferencias internacionales (si las hubiera)</li>
+            <li>Plazos de conservación</li>
+            <li>Medidas de seguridad implementadas</li>
+        </ul>
+
+        <h3>2. Designación de un Delegado de Protección de Datos</h3>
+        <p>Las organizaciones que traten datos sensibles a gran escala o realicen seguimiento sistemático de personas deben designar un Delegado de Protección de Datos (DPO). Este profesional será el punto de contacto con la autoridad de control y los titulares.</p>
+
+        <h3>3. Evaluación de Impacto en la Protección de Datos</h3>
+        <p>Cuando el tratamiento implique un alto riesgo para los derechos de los titulares, se debe realizar una Evaluación de Impacto (EIPD) antes de iniciar el tratamiento.</p>
+
+        <h3>4. Notificación de Brechas de Seguridad</h3>
+        <p>Las violaciones de seguridad que afecten datos personales deben notificarse a la Autoridad de Aplicación dentro de las 72 horas de conocido el incidente. Si el riesgo es alto, también debe informarse directamente a los titulares afectados.</p>
+
+        <h2>Transferencias Internacionales</h2>
+        
+        <p>Las transferencias de datos personales a países u organizaciones internacionales solo están permitidas cuando:</p>
+        <ul class="lista-numerada">
+            <li>El país destinatario cuenta con un nivel de protección adecuado reconocido por la autoridad argentina</li>
+            <li>Se implementen garantías apropiadas (cláusulas contractuales tipo, normas corporativas vinculantes)</li>
+            <li>Exista consentimiento explícito del titular</li>
+            <li>Sea necesario para la ejecución de un contrato o por razones de interés público</li>
+        </ul>
+
+        <h2>Régimen Sancionatorio</h2>
+        
+        <p>El incumplimiento de las obligaciones establecidas en la ley puede dar lugar a:</p>
+
+        <div class="checklist">
+            <h3 style="margin-bottom: 1rem;">Sanciones Aplicables</h3>
+            <div class="checklist-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Apercibimiento:</strong> Para infracciones leves o primeras infracciones sin daño significativo.</span>
+            </div>
+            <div class="checklist-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Multas:</strong> Desde $1.000.000 hasta $100.000.000, según gravedad y facturación de la empresa.</span>
+            </div>
+            <div class="checklist-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Suspensión temporal:</strong> Prohibición de realizar tratamientos por hasta 6 meses.</span>
+            </div>
+            <div class="checklist-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Suspensión definitiva:</strong> Prohibición permanente del tratamiento de datos.</span>
+            </div>
+        </div>
+
+        <h2>Comparación con GDPR</h2>
+        
+        <p>La nueva ley argentina presenta importantes similitudes con el Reglamento General de Protección de Datos europeo (GDPR), lo que facilita las operaciones de empresas multinacionales. Entre las coincidencias destacan:</p>
+
+        <ul class="lista-numerada">
+            <li>Principios fundamentales del tratamiento</li>
+            <li>Derechos de los titulares (ARCO plus)</li>
+            <li>Obligación de realizar evaluaciones de impacto</li>
+            <li>Designación de DPO en ciertos casos</li>
+            <li>Notificación de brechas de seguridad</li>
+            <li>Enfoque de responsabilidad proactiva</li>
+        </ul>
+
+        <h2>Pasos para el Cumplimiento</h2>
+        
+        <div class="destacado">
+            <h3>Guía de Implementación</h3>
+            <ol class="lista-numerada">
+                <li><strong>Auditoría de datos:</strong> Identificar qué datos se recolectan, con qué finalidad y dónde se almacenan.</li>
+                <li><strong>Mapeo de flujos:</strong> Documentar cómo circulan los datos dentro y fuera de la organización.</li>
+                <li><strong>Revisión legal:</strong> Verificar que todos los tratamientos tengan base legal adecuada.</li>
+                <li><strong>Actualización de políticas:</strong> Redactar o actualizar políticas de privacidad y avisos de tratamiento.</li>
+                <li><strong>Implementación técnica:</strong> Desarrollar mecanismos para ejercicio de derechos y seguridad de datos.</li>
+                <li><strong>Capacitación:</strong> Entrenar al personal en los nuevos requerimientos normativos.</li>
+                <li><strong>Designación de responsables:</strong> Nombrar un DPO si corresponde.</li>
+                <li><strong>Monitoreo continuo:</strong> Establecer procesos de revisión y actualización periódica.</li>
+            </ol>
+        </div>
+
+        <h2>Conclusiones</h2>
+        
+        <p>La nueva Ley de Protección de Datos Personales representa un avance significativo en la tutela de los derechos fundamentales en el entorno digital. Su correcta implementación no solo evita sanciones, sino que genera confianza en los clientes y usuarios.</p>
+
+        <p>Las organizaciones deben comenzar cuanto antes el proceso de adecuación, considerando que el cumplimiento normativo requiere cambios tanto en aspectos tecnológicos como organizacionales y culturales.</p>
+
+        <p>La asesoría legal especializada resulta fundamental para diseñar e implementar un programa de cumplimiento efectivo, adaptado a las características específicas de cada organización.</p>
+
+        <a href="publicaciones.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            <span>Volver a Publicaciones</span>
+        </a>
+    </article>
+
+    <footer class="footer">
+        <p>&copy; 2025 Martínez & Asociados. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

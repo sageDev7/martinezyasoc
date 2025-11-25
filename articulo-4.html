@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derecho Societario Digital | Martínez & Asociados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --azul-oscuro: #1a2332; --azul-medio: #2C3E50; --dorado: #C9A961;
+            --gris-oscuro: #2C2C2C; --gris-medio: #666666; --gris-claro: #F8F8F8; --blanco: #FFFFFF;
+        }
+        body { font-family: 'Inter', sans-serif; color: var(--gris-oscuro); line-height: 1.8; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        .navbar { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1rem 0; background: var(--azul-oscuro); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 3rem; }
+        .logo { font-size: 1.4rem; color: var(--blanco); text-decoration: none; display: flex; align-items: center; gap: 0.8rem; white-space: nowrap; }
+        .logo i { color: var(--dorado); font-size: 1.8rem; }
+        .nav-menu { display: flex; list-style: none; gap: 3rem; }
+        .nav-menu a { color: var(--blanco); text-decoration: none; font-size: 0.875rem; transition: color 0.3s; }
+        .nav-menu a:hover { color: var(--dorado); }
+        .article-header { padding: 10rem 3rem 4rem; background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-medio)); color: var(--blanco); }
+        .header-content { max-width: 900px; margin: 0 auto; }
+        .article-categoria { font-size: 0.85rem; color: var(--dorado); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
+        .article-header h1 { font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2; }
+        .article-meta { display: flex; gap: 2rem; font-size: 0.9rem; opacity: 0.9; }
+        .article-content { max-width: 800px; margin: 4rem auto; padding: 0 3rem; }
+        .article-content p { margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.9; }
+        .article-content h2 { font-size: 2rem; margin: 3rem 0 1.5rem; color: var(--azul-oscuro); }
+        .article-content h3 { font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--azul-medio); }
+        .destacado { background: var(--gris-claro); padding: 2rem; border-left: 5px solid var(--dorado); margin: 2rem 0; }
+        .lista-numerada { margin: 1.5rem 0; padding-left: 2rem; }
+        .lista-numerada li { margin-bottom: 1rem; }
+        .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: var(--azul-oscuro); color: var(--blanco); text-decoration: none; margin-top: 3rem; transition: all 0.3s; }
+        .back-btn:hover { background: var(--dorado); }
+        .footer { background: var(--azul-oscuro); color: var(--blanco); padding: 3rem; text-align: center; }
+        .comparativa { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; }
+        .comparativa-item { background: var(--blanco); border: 2px solid var(--gris-claro); padding: 1.5rem; }
+        .comparativa-item h4 { color: var(--azul-oscuro); margin-bottom: 1rem; }
+        @media (max-width: 768px) {
+            .logo { font-size: 0.95rem; }
+            .nav-menu { display: none; }
+            .article-header { padding: 8rem 2rem 3rem; }
+            .article-header h1 { font-size: 2rem; }
+            .article-content { padding: 0 2rem; }
+            .comparativa { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-balance-scale"></i> Martínez & Asociados</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">El Estudio</a></li>
+                <li><a href="areas.html">Áreas de Práctica</a></li>
+                <li><a href="publicaciones.html">Publicaciones</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="article-header">
+        <div class="header-content">
+            <p class="article-categoria">Derecho Societario</p>
+            <h1>Derecho Societario en la Transformación Digital</h1>
+            <div class="article-meta">
+                <span><i class="far fa-calendar"></i> 10 de Diciembre, 2024</span>
+                <span><i class="fas fa-user"></i> Dr. Ricardo Martínez</span>
+                <span><i class="fas fa-clock"></i> 9 min lectura</span>
+            </div>
+        </div>
+    </header>
+
+    <article class="article-content">
+        <p class="destacado"><strong>Resumen Ejecutivo:</strong> La tecnología blockchain, los contratos inteligentes y las Sociedades por Acciones Simplificadas (SAS) digitales están transformando radicalmente el derecho societario. Este artículo analiza cómo estas innovaciones están redefiniendo la constitución, administración y gobierno corporativo de las empresas.</p>
+
+        <p>La transformación digital está revolucionando todos los aspectos de la vida empresarial, y el derecho societario no es la excepción. Las nuevas tecnologías no solo agilizan procesos tradicionales, sino que están creando formas completamente nuevas de organización empresarial y gobernanza corporativa.</p>
+
+        <h2>Sociedades por Acciones Simplificadas Digitales</h2>
+        
+        <h3>¿Qué son las SAS Digitales?</h3>
+        <p>Las Sociedades por Acciones Simplificadas (SAS) ya representaban una forma ágil de constitución societaria. Con la digitalización completa del proceso, ahora es posible crear una empresa en menos de 24 horas sin necesidad de acudir presencialmente a ninguna oficina.</p>
+
+        <h3>Proceso de Constitución Digital</h3>
+        <p>El procedimiento completamente digital incluye:</p>
+        <ul class="lista-numerada">
+            <li><strong>Firma electrónica:</strong> Todos los documentos se firman con firma digital certificada</li>
+            <li><strong>Pago online:</strong> Aranceles e impuestos se abonan mediante transferencia o medios electrónicos</li>
+            <li><strong>Inscripción automática:</strong> El sistema verifica requisitos e inscribe automáticamente en Inspección General de Justicia</li>
+            <li><strong>CUIT inmediato:</strong> Obtención automática de CUIT una vez inscripta la sociedad</li>
+        </ul>
+
+        <div class="comparativa">
+            <div class="comparativa-item">
+                <h4>Constitución Tradicional</h4>
+                <ul style="padding-left: 1.5rem;">
+                    <li>Tiempo: 15-30 días</li>
+                    <li>Presencia física requerida</li>
+                    <li>Múltiples trámites manuales</li>
+                    <li>Costos administrativos elevados</li>
+                </ul>
+            </div>
+            <div class="comparativa-item">
+                <h4>Constitución Digital</h4>
+                <ul style="padding-left: 1.5rem;">
+                    <li>Tiempo: 24-48 horas</li>
+                    <li>100% remoto</li>
+                    <li>Automatización completa</li>
+                    <li>Costos reducidos hasta 70%</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Blockchain y Registro Societario</h2>
+        
+        <h3>¿Qué es Blockchain?</h3>
+        <p>Blockchain es una tecnología de registro distribuido que permite almacenar información de manera segura, transparente e inmutable. En el contexto societario, ofrece soluciones innovadoras para el registro de accionistas, la trazabilidad de operaciones y la transparencia corporativa.</p>
+
+        <h3>Aplicaciones en Derecho Societario</h3>
+        
+        <p><strong>1. Registro de Accionistas</strong></p>
+        <p>Los libros de accionistas pueden mantenerse en blockchain, ofreciendo:</p>
+        <ul class="lista-numerada">
+            <li>Registro inmutable de todas las transacciones</li>
+            <li>Trazabilidad completa de la cadena de propiedad</li>
+            <li>Acceso en tiempo real para todos los autorizados</li>
+            <li>Eliminación de intermediarios en transferencias de acciones</li>
+        </ul>
+
+        <p><strong>2. Asambleas Virtuales</strong></p>
+        <p>La tecnología permite realizar asambleas completamente digitales con:</p>
+        <ul class="lista-numerada">
+            <li>Verificación de identidad mediante firma digital</li>
+            <li>Votación electrónica segura e inviolable</li>
+            <li>Registro automático en actas digitales</li>
+            <li>Participación remota de accionistas desde cualquier ubicación</li>
+        </ul>
+
+        <h2>Contratos Inteligentes (Smart Contracts)</h2>
+        
+        <h3>Definición y Funcionamiento</h3>
+        <p>Los contratos inteligentes son programas informáticos que ejecutan automáticamente las condiciones acordadas cuando se cumplen determinados parámetros preestablecidos. En el ámbito societario, están revolucionando aspectos como:</p>
+
+        <div class="destacado">
+            <h3>Casos de Uso en Sociedades</h3>
+            <ul class="lista-numerada">
+                <li><strong>Distribución de dividendos:</strong> Reparto automático cuando se cumplen condiciones financieras establecidas</li>
+                <li><strong>Opciones de compra:</strong> Ejecución automática de opciones sobre acciones al alcanzar determinados hitos</li>
+                <li><strong>Cumplimiento de obligaciones:</strong> Verificación y ejecución automática de cláusulas contractuales</li>
+                <li><strong>Transferencia de acciones:</strong> Validación y registro automático de cesiones accionarias</li>
+            </ul>
+        </div>
+
+        <h3>Validez Legal</h3>
+        <p>La legislación argentina reconoce la validez de los contratos celebrados por medios electrónicos. Los contratos inteligentes, al ser una forma de automatización de acuerdos previamente consensuados, tienen plena validez siempre que:</p>
+        <ul class="lista-numerada">
+            <li>Exista consentimiento previo de las partes sobre los términos del código</li>
+            <li>El código refleje fielmente el acuerdo de voluntades</li>
+            <li>Se cumplan los requisitos esenciales de todo contrato</li>
+            <li>No contravengan normas de orden público</li>
+        </ul>
+
+        <h2>Gobernanza Corporativa Digital</h2>
+        
+        <h3>Nuevos Modelos de Administración</h3>
+        <p>La digitalización está permitiendo estructuras de gobierno más ágiles y transparentes:</p>
+
+        <p><strong>Directorios Virtuales</strong></p>
+        <p>Los directorios pueden funcionar completamente en forma remota, con reuniones por videoconferencia que tienen la misma validez que las presenciales, siempre que:</p>
+        <ul class="lista-numerada">
+            <li>El estatuto social lo prevea expresamente</li>
+            <li>Se garantice la identificación de todos los participantes</li>
+            <li>Se asegure la simultánea participación e interacción</li>
+            <li>Se labre acta digital con firma electrónica</li>
+        </ul>
+
+        <p><strong>Toma de Decisiones Descentralizada</strong></p>
+        <p>Las DAOs (Organizaciones Autónomas Descentralizadas) representan un modelo emergente donde las decisiones se toman mediante votación distribuida de los tenedores de tokens, sin necesidad de una estructura jerárquica tradicional.</p>
+
+        <h2>Aspectos Fiscales y Regulatorios</h2>
+        
+        <h3>Tratamiento Impositivo</h3>
+        <p>Las sociedades digitales están sujetas al mismo régimen impositivo que las sociedades tradicionales. Sin embargo, presentan particularidades:</p>
+        <ul class="lista-numerada">
+            <li>Facilidad de seguimiento de operaciones mediante registros blockchain</li>
+            <li>Mayor transparencia ante autoridades fiscales</li>
+            <li>Automatización de obligaciones de información</li>
+            <li>Desafíos en la jurisdicción fiscal cuando operan internacionalmente</li>
+        </ul>
+
+        <h3>Regulación en Desarrollo</h3>
+        <p>La CNV (Comisión Nacional de Valores) está desarrollando normativa específica para:</p>
+        <ul class="lista-numerada">
+            <li>Oferta pública de tokens representativos de acciones</li>
+            <li>Requisitos de información y transparencia</li>
+            <li>Protección de inversores en plataformas digitales</li>
+            <li>Registro de agentes que operen con valores digitales</li>
+        </ul>
+
+        <h2>Desafíos y Oportunidades</h2>
+        
+        <div class="destacado">
+            <h3>Desafíos Actuales</h3>
+            <ul class="lista-numerada">
+                <li><strong>Marco regulatorio en evolución:</strong> La legislación aún está adaptándose a estas realidades</li>
+                <li><strong>Seguridad informática:</strong> Necesidad de proteger sistemas contra ciberataques</li>
+                <li><strong>Educación digital:</strong> Requerimiento de capacitación de profesionales y empresarios</li>
+                <li><strong>Interoperabilidad:</strong> Integración entre sistemas digitales y registros tradicionales</li>
+            </ul>
+        </div>
+
+        <h3>Oportunidades</h3>
+        <ul class="lista-numerada">
+            <li><strong>Reducción de costos:</strong> Menor necesidad de intermediarios y trámites físicos</li>
+            <li><strong>Agilidad:</strong> Procesos que antes llevaban semanas ahora se completan en horas</li>
+            <li><strong>Transparencia:</strong> Mayor visibilidad de operaciones para accionistas y stakeholders</li>
+            <li><strong>Acceso:</strong> Democratización del acceso a la inversión en empresas</li>
+            <li><strong>Globalización:</strong> Facilitación de operaciones transfronterizas</li>
+        </ul>
+
+        <h2>Recomendaciones para Empresas</h2>
+        
+        <p>Para aprovechar estas oportunidades minimizando riesgos, recomendamos:</p>
+        <ol class="lista-numerada">
+            <li><strong>Actualización estatutaria:</strong> Incorporar cláusulas que permitan el uso de tecnologías digitales</li>
+            <li><strong>Capacitación:</strong> Formar a directivos y personal en nuevas herramientas</li>
+            <li><strong>Asesoramiento especializado:</strong> Contar con profesionales actualizados en derecho societario digital</li>
+            <li><strong>Seguridad informática:</strong> Implementar protocolos robustos de ciberseguridad</li>
+            <li><strong>Compliance:</strong> Asegurar cumplimiento de normativa vigente y emergente</li>
+        </ol>
+
+        <h2>Conclusiones</h2>
+        
+        <p>La transformación digital del derecho societario no es una tendencia futura, sino una realidad presente. Las empresas que adopten estas tecnologías de manera estratégica y con el debido asesoramiento legal obtendrán ventajas competitivas significativas.</p>
+
+        <p>El desafío para legisladores, profesionales y empresarios es encontrar el balance entre innovación y seguridad jurídica, aprovechando los beneficios de la tecnología sin descuidar la protección de todos los stakeholders.</p>
+
+        <p>La evolución continuará acelerándose, y quienes comprendan y se adapten tempranamente a estos cambios estarán mejor posicionados para el futuro empresarial digital.</p>
+
+        <a href="publicaciones.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            <span>Volver a Publicaciones</span>
+        </a>
+    </article>
+
+    <footer class="footer">
+        <p>&copy; 2025 Martínez & Asociados. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
