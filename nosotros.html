@@ -433,37 +433,20 @@
         .socio-image {
             width: 100%;
             height: 400px;
-            background: var(--gris-claro);
+            background-size: cover;
+            background-position: center 30%;
             position: relative;
             overflow: hidden;
         }
 
-        .socio-image::before {
+        .socio-image::after {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 180px;
-            height: 180px;
-            background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-medio));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .socio-image::after {
-            content: attr(data-initials);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--dorado);
-            font-family: 'Playfair Display', serif;
-            z-index: 1;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, rgba(26, 35, 50, 0.8), transparent);
         }
 
         .socio-info {
@@ -960,6 +943,11 @@
                 grid-template-columns: 1fr;
             }
 
+            .socio-image {
+                height: 350px;
+                background-position: center 20%;
+            }
+
             .cta-content {
                 padding: 2.5rem 1.5rem;
             }
@@ -1170,7 +1158,7 @@
 
             <div class="equipo-grid">
                 <div class="socio-card">
-                    <div class="socio-image" data-initials="RM"></div>
+                    <div class="socio-image" style="background-image: url('https://images.unsplash.com/photo-1556157382-97eda2d62296?w=800&q=80');"></div>
                     <div class="socio-info">
                         <h3>Dr. Ricardo Martínez</h3>
                         <p class="socio-cargo">Socio Fundador</p>
@@ -1186,7 +1174,7 @@
                 </div>
 
                 <div class="socio-card">
-                    <div class="socio-image" data-initials="LR"></div>
+                    <div class="socio-image" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80');"></div>
                     <div class="socio-info">
                         <h3>Dra. Laura Rodríguez</h3>
                         <p class="socio-cargo">Socia</p>
@@ -1258,7 +1246,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Navbar scroll effect
         const navbar = document.querySelector('.navbar');
         

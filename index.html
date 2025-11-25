@@ -469,8 +469,10 @@
         .area-lista {
             list-style: none;
             margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: left;
-            display: inline-block;
         }
 
         .area-lista li {
@@ -480,6 +482,7 @@
             display: flex;
             align-items: center;
             gap: 0.6rem;
+            width: auto;
         }
 
         .area-lista li i {
@@ -1072,6 +1075,90 @@
             .footer-links {
                 flex-direction: column;
                 gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 0.95rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .presentacion-section,
+            .areas-section,
+            .cta-final-section {
+                padding: 4rem 1rem;
+            }
+
+            .areas-grid {
+                padding: 0 1rem;
+                gap: 1.5rem;
+            }
+
+            .area-card {
+                max-width: 100%;
+                padding: 2rem 1.5rem;
+            }
+
+            .area-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+            }
+
+            .area-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .area-card p {
+                font-size: 0.9rem;
+            }
+
+            .area-lista li {
+                font-size: 0.85rem;
+            }
+
+            .cta-final-content {
+                padding: 2rem 1.2rem;
+            }
+
+            .cta-final-content h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .logo {
+                font-size: 0.85rem;
+            }
+
+            .logo i {
+                font-size: 1.1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .areas-grid {
+                padding: 0 0.5rem;
+            }
+
+            .area-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .area-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.6rem;
             }
         }
     </style>
